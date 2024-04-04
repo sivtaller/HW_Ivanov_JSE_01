@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        td, th {
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <table id="statsTable">
+        <tr>
+            <th>Місяць</th>
+            <th>Відділ 1</th>
+            <th>Відділ 2</th>
+        </tr>
+        <tr>
+            <td>Січень</td>
+            <td>50</td>
+            <td>120</td>
+        </tr>
+        <tr>
+            <td>Лютий</td>
+            <td>60</td>
+            <td>140</td>
+        </tr>
+        <tr>
+            <td>Березень</td>
+            <td>125</td>
+            <td>115</td>
+        </tr>
+        <tr>
+            <td>Квітень</td>
+            <td>87</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>Травень</td>
+            <td>95</td>
+            <td>80</td>
+        </tr>
+        <tr>
+            <td>Червень</td>
+            <td>115</td>
+            <td>90</td>
+        </tr>
+        <tr>
+            <td>Липень</td>
+            <td>125</td>
+            <td>100</td>
+        </tr>
+        <tr >
+            <td>Разом</td>
+            <td id="razom1"></td>
+            <td id="razom2"></td>
+        </tr>
+    </table>
+
+    <div id="result"></div>
+
+    <script>
+        /*
+        Завдання:
+        Додайте рядок "Разом" для таблиці statsTable.
+        Напишіть сценарій, яким виведіть у другу комірку цього рядка суму всіх числових значень другої колонки.
+        Виведіть у третю комірку цього рядка суму всіх числових значень із третьої колонки таблиці.
+        У div з id result виведіть повідомлення "Відділ 1 зробив більше продажів" або "Відділ 2 зробив більше продажів" на основі раніше обчислених значень у рядку "Разом".
+        Використовуйте будь-які методи, які були розглянуті на попередніх уроках.
+        */
+
+        let sumVid1 = 0;
+        let sumVid2 = 0;
+        vid1Col = document.querySelectorAll ('#statsTable td:nth-child(2)');
+        for (const item of vid1Col) {
+            sumVid1 +=+item.textContent;
+        };
+        vid2Col = document.querySelectorAll ('#statsTable td:nth-child(3)');
+        for (const item of vid2Col) {
+            sumVid2 +=+item.textContent;
+        };
+
+        document.querySelector('#razom1').textContent = sumVid1;
+        document.querySelector('#razom2').textContent = sumVid2;
+
+        if (sumVid1>sumVid2) {
+            document.querySelector ('#result').textContent = "Відділ 1 зробив більше продажів";
+        }
+            else {
+        
+            document.querySelector ('#result').textContent = "Відділ 2 зробив більше продажів";
+
+        }
+    
+
+
+
+
+    </script>
+</body>
+</html>
